@@ -1,0 +1,17 @@
+/.vs/Simple-desktop-service/v15
+
+packages/
+
+\.idea/
+
+\.vs/
+
+[Bb]in/
+[Oo]bj/
+
+[Ll]og/ApplicationStartingPoint/
+
+MI-public-client-console-app.sln.DotSettings.user
+
+.DS_Store
+*.log
