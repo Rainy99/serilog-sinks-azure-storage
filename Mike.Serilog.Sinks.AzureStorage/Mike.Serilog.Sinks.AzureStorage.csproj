@@ -3,7 +3,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Mike.Serilog.Sinks.AzureStorage</RootNamespace>
     <PackageId>Mike.Serilog.Sinks.AzureStorage</PackageId>
-    <Version>0.0.2</Version>
+    <Version>0.0.3</Version>
     <Authors>mike706574</Authors>
     <Title>Mike.Serilog.Sinks.AzureStorage</Title>
     <Description>Azure Storage Serilog sinks.</Description>
