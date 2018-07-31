@@ -38,7 +38,7 @@ namespace Mike.Serilog.Sinks.AzureStorage
         protected override async Task EmitBatchAsync(IEnumerable<LogEvent> events)
         {
             // If the day has changed, roll along to a new blob
-            if (_day.Date != DateTime.UtcNow.Date)
+            if (_day.Date != DateTime.Now.Date)
             {
                 Roll();
             }
@@ -66,7 +66,7 @@ namespace Mike.Serilog.Sinks.AzureStorage
 
         private void Roll()
         {
-            _day = DateTime.UtcNow;
+            _day = DateTime.Now;
             string stamp = _day.ToString("yyyy-MM-dd");
             string blobName = $"{_baseBlobName}_{stamp}.log";
             _blob = _container.GetAppendBlobReference(blobName);
