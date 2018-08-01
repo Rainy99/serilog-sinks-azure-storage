@@ -71,14 +71,17 @@ namespace Mike.Serilog.Sinks.AzureStorage
             string blobName = $"{_baseBlobName}_{stamp}.log";
             _blob = _container.GetAppendBlobReference(blobName);
 
-            _blob.CreateOrReplaceAsync().Wait();
+            if (!_blob.ExistsAsync().Result)
+            {
+                _blob.CreateOrReplaceAsync().Wait();
 
-            _blob.FetchAttributesAsync().Wait();
+                _blob.FetchAttributesAsync().Wait();
 
-            _blob.Metadata["Day"] = stamp;
-            _blob.Metadata["Name"] = _baseBlobName;
+                _blob.Metadata["Day"] = stamp;
+                _blob.Metadata["Name"] = _baseBlobName;
 
-            _blob.SetMetadataAsync().Wait();
+                _blob.SetMetadataAsync().Wait();
+            }
         }
     }
 }
